@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+
+  color-scheme: light dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --color-text-primary: oklch(0 0 0);
+  --color-text-secondary: oklch(0.71 0.02 263.23);
+  --color-text-link: oklch(0.57 0.19 262.65);
+  --color-text-link-hover: oklch(0.51 0.23 261.5);
+
+  --color-text-btn-primary: oklch(1 0 0);
+  --color-background-btn-secondary-default: transparent;
+  --color-background-btn-secondary-hover: oklch(0 0 0 / 0.1);
+  --color-background-btn-primary-default: oklch(0.57 0.19 262.65);
+  --color-background-btn-primary-hover: oklch(0.51 0.23 261.5);
+
+  --color-background-overlay: oklch(0.96 0 0);
+  --color-background-base: oklch(1 0 0);
+
+  --color-input-border-default: oklch(0.87 0.01 261.99);
+  --color-input-border-hover: oklch(0.67 0.04 261.61);
+  --color-outline: oklch(0.84 0.07 252.15);
+
+  --color-text-error: oklch(0.58 0.2 29.29);
+  --color-border-error-default: var(--color-text-error);
+  --color-border-error-hover: oklch(0.75 0.15 22.36);
+
+  --border-radius: 8px;
+  --outline-width: 3px;
+
+  @media (prefers-color-scheme: dark) {
+    --color-text-primary: oklch(1 0 0);
+    --color-text-secondary: oklch(0.55 0.02 285.98);
+    --color-text-link: oklch(0.71 0.01 286.17);
+    --color-text-link-hover: oklch(1 0 0);
+
+    --color-background-btn-secondary-hover: oklch(0.3 0 0);
+
+    --color-background-overlay: oklch(0.26 0 0);
+    --color-background-base: oklch(0.2 0.01 0);
+
+    --color-input-border-default: oklch(0.37 0.01 285.99);
+    --color-outline: oklch(0.39 0.11 264.07);
+  }
+}
+
+a {
+  font-weight: 500;
+  color: var(--color-text-link);
+  text-decoration: inherit;
+
+  &:focus {
+    outline: 3px solid var(--color-outline);
+    color: var(--color-text-link-hover);
+  }
+
+  &:hover {
+    color: var(--color-text-link-hover);
+  }
+}
+
+button {
+  cursor: pointer;
+}

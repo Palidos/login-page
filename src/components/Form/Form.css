@@ -1,0 +1,17 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form__header {
+  font-size: 1.5rem;
+  margin-block-end: 28px;
+  color: var(--color-text-primary);
+}
+
+.form__bottom-text {
+  color: var(--color-text-secondary);
+  margin-block-start: 24px;
+  text-align: center;
+}

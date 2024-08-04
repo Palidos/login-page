@@ -1,0 +1,19 @@
+.button {
+  color: var(--color-text-btn-primary);
+  background-color: var(--color-background-btn-primary-default);
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 15px;
+
+  &:focus {
+    background-color: var(--color-background-btn-primary-hover);
+    outline: var(--outline-width) solid var(--color-outline);
+    outline-offset: 3px;
+  }
+
+  &:hover{
+    background-color: var(--color-background-btn-primary-hover);
+  }
+}
