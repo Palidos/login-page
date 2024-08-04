@@ -3,8 +3,10 @@ import { Button } from "../Button/Button";
 import { Card } from "../Card/Card";
 import { FormInput } from "../FormInput/FormInput";
 import { FormPassword } from "../FormPassword/FormPassword";
-import "./Form.css";
+import { Spinner } from "../Spinner/Spinner";
 import { getEmailError, getPasswordError, mockFetch } from "./utils";
+
+import "./Form.css";
 
 interface LoginFormElements extends HTMLFormControlsCollection {
   email: HTMLInputElement;
@@ -18,6 +20,7 @@ interface LoginFormElement extends HTMLFormElement {
 export const Form = () => {
   const [emailValidationError, setEmailValidationError] = React.useState("");
   const [passwordValidationError, setPasswordValidationError] = React.useState("");
+  const [isFormSubmitting, setIsFormSubmitting] = React.useState(false);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -31,13 +34,16 @@ export const Form = () => {
     }
 
     if (form.checkValidity()) {
+      setIsFormSubmitting(true);
       mockFetch("/login", {
         method: "POST",
         body: JSON.stringify({
           email: form.elements.email.value,
           password: form.elements.password.value,
         }),
-      }).catch(() => {});
+      })
+        .catch(() => {})
+        .finally(() => setIsFormSubmitting(false));
     }
   };
 
@@ -70,7 +76,12 @@ export const Form = () => {
 
         <FormPassword error={passwordValidationError} onChange={handlePasswordChange} />
 
-        <Button type="submit">Login now</Button>
+        <Button type="submit">
+          <div className="form__submit-button-content">
+            {isFormSubmitting && <Spinner />}
+            Login now
+          </div>
+        </Button>
       </form>
       <p className="form__bottom-text">
         Don&apos;t have an account? <a href="#">Sign up</a>

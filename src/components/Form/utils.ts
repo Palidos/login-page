@@ -25,6 +25,8 @@ export const mockFetch = async (
     const parsedBody = JSON.parse(init.body) as object;
     const result = { endpoint: input, ...parsedBody };
     console.log(result);
-    resolve(result);
+    setTimeout(() => {
+      resolve(result);
+    }, 1500);
   });
 };

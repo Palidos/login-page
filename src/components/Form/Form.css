@@ -10,6 +10,12 @@
   color: var(--color-text-primary);
 }
 
+.form__submit-button-content {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
 .form__bottom-text {
   color: var(--color-text-secondary);
   margin-block-start: 24px;
