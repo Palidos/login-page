@@ -4,7 +4,7 @@ import { Card } from "../Card/Card";
 import { FormInput } from "../FormInput/FormInput";
 import { FormPassword } from "../FormPassword/FormPassword";
 import "./Form.css";
-import { getEmailError, getPasswordError } from "./utils";
+import { getEmailError, getPasswordError, mockFetch } from "./utils";
 
 interface LoginFormElements extends HTMLFormControlsCollection {
   email: HTMLInputElement;
@@ -28,6 +28,16 @@ export const Form = () => {
     }
     if (!form.elements.password.validity.valid) {
       setPasswordValidationError(getPasswordError(form.elements.password.validity));
+    }
+
+    if (form.checkValidity()) {
+      mockFetch("/login", {
+        method: "POST",
+        body: JSON.stringify({
+          email: form.elements.email.value,
+          password: form.elements.password.value,
+        }),
+      }).catch(() => {});
     }
   };
 
