@@ -7,20 +7,18 @@ export interface FormInputProps
     "ref"
   > {
   label: string;
-  labelHint?: React.ReactNode;
   error?: string;
   suffix?: React.ReactNode;
 }
 
 export const FormInput = React.memo(
-  ({ label, labelHint, error, suffix, name, ...inputProps }: FormInputProps) => {
+  ({ label, error, suffix, name, className, ...inputProps }: FormInputProps) => {
     return (
       <div className="form-input">
         <div className="form-input__label-container">
           <label className="form-input__label" htmlFor={name}>
             {label}
           </label>
-          {labelHint}
         </div>
 
         <span
@@ -29,7 +27,7 @@ export const FormInput = React.memo(
           <input
             id={name}
             name={name}
-            className="form-input__input"
+            className={`form-input__input ${className}`}
             aria-invalid={Boolean(error)}
             {...inputProps}
           />

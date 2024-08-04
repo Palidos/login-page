@@ -83,6 +83,10 @@ export const Form = () => {
           </div>
         </Button>
       </form>
+
+      <p className="form__bottom-text">
+        <a href="#">Forgot password?</a>
+      </p>
       <p className="form__bottom-text">
         Don&apos;t have an account? <a href="#">Sign up</a>
       </p>

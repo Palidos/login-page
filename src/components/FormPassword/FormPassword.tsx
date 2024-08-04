@@ -24,12 +24,12 @@ export const FormPassword = ({ ...inputProps }: FormPasswordProps) => {
       name="password"
       required
       type={type}
+      className="password__input"
       aria-label="Enter your password"
       autoCapitalize="off"
       autoCorrect="off"
       autoComplete="current-password"
       spellCheck="false"
-      labelHint={<a href="#">Forgot password?</a>}
       suffix={
         <button
           className="password__visibility-toggle"
