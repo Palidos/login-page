@@ -20,4 +20,7 @@
   color: var(--color-text-secondary);
   margin-block-start: 24px;
   text-align: center;
+  & > a {
+    white-space: nowrap;
+  }
 }
